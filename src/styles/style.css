@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+:root {
+    --cor1: #FA5C5C;
+    --cor2: #FD8A6B;
+    --cor3: #faca9d;
+    --cor4: #FBEF76;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor3);
+    text-align: center;
+    color: #5e1603;
+}
+
+body h1 {
+    color: var(--cor1);
+    font-size: 3em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.178);
+}
+
+body ol li {
+    list-style: none;
+}
+
+div#container_table table {
+    margin: auto;
+}
+
+body main {
+    padding: 30px;
+}
+
+body main aside p {
+    margin-bottom: 35px;
+}
+
+div#container_table table {
+    background-color: bisque;
+    padding: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.336);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+body main aside button {
+    margin: 15px;
+    background-color: #5e1603;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.315);
+    border-radius: 5px;
+    padding: 15px;
+    width: 200px;
+    color: whitesmoke;
+    font-size: large;
+    border: 1px solid rgb(31, 1, 1);
+    transition: 0.2s;
+}
+
+body main aside button:hover {
+    width: 205px;
+    padding: 20px;
+    box-shadow: 2px 5px 20px rgba(226, 221, 221, 0.945);
+    background-color: #611804;
+}
+
+#corpo_velha {
+    width: 100%;
+    background-color: white;
+}
+
+#tabela_velha {
+    border-collapse: collapse;
+    margin: auto;
+    cursor: pointer;
+
+}
+
+.celula {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 100px;
+    text-align: center;
+    border: 4px solid #5e1603;
+    transition: 0.3s;
+}
+
+.celula:hover{
+    background-color: rgb(189, 186, 186);
+}
+
+tr:first-child .celula { border-top: none; }
+tr:last-child .celula { border-bottom: none; }
+.celula:nth-child(3n+1) { border-left: none; }
+.celula:nth-child(3n) { border-right: none; }
+
+@media screen and (max-width: 600px) {
+    .celula {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5em;
+        line-height: 80px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .celula {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+        line-height: 60px;
+    }
+}

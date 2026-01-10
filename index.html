@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="shortcut icon" href="./src/images/icons/favicon_tictactoe.png" type="image/x-icon">
+</head>
+
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <main>
+        <aside>
+            <h2>How to play?</h2>
+            <p>Tic-Tac-Toe is a classic two-player game played on a 3x3 grid. The goal is to be the first player to get
+                three of your symbols in a row.</p>
+            <h3>1. Set Up the Board</h3>
+            <p>
+                Draw a grid with two horizontal lines and two vertical lines, creating <strong>nine squares.</strong>
+            </p>
+            <ol>
+                <li><strong>Player 1</strong> is usually X</li>
+                <li><strong>Player 2</strong> is usually O</li>
+            </ol>
+            <h3>2. Take Turns</h3>
+            <p>Decide who goes first. Players take turns placing their mark (X or O) in an empty square.</p>
+            <p><strong>Tip:</strong> Once a mark is placed, it cannot be changed or moved!</p>
+            <h3>3. The Objective</h3>
+            <p>The goal is to align <strong>three</strong> of your marks in a horizontal, vertical, or diagonal row.</p>
+            <div id="container_table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Winning Patterns
+                            </th>
+                            <th>
+                                Example
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Horizontal</strong></td>
+                            <td>Three in a row across (top, middle, or bottom).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vertical</strong></td>
+                            <td>Three in a row down (left, center, or right).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diagonal</strong></td>
+                            <td>Three in a row slanting from corner to corner.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Winning or Drawing</h3>
+                <ol>
+                    <li><strong>Winner:</strong> The first person to get three in a row wins the game.</li>
+                    <li><strong>Draw (Tie):</strong> If all nine squares are filled and no one has three in a row, the
+                        game is a "Draw" (often called a "Cat’s Game").</li>
+                </ol>
+            </div>
+
+            <button id="startGame">Start the game</button>
+        </aside>
+    </main>
+    <script type="module" src="src/scripts/main.js"></script>
+</body>
+
+</html>
