@@ -48,33 +48,31 @@ function estruturaJogo() {
     }
 
     console.log(corpoTabela);
-    logicaJogo(principal);
-}
 
-function marcarPosicao(turno) {
-    if (this.innerText === "") {
-        this.innerText = turno;
-    }
-}
-
-function logicaJogo(tbl_velha, turno) {
     let turnoP = document.createElement("p");
     turnoP.setAttribute('id', 'turno_jogador');
-    turnoP.innerText = "Vez do Jogador: X"
-
     turnoP.style.fontSize = "24px";
     turnoP.style.fontWeight = "bold";
     turnoP.style.textAlign = "center";
     turnoP.style.marginBottom = "20px";
+    principal.insertBefore(turnoP, containerVelha);
 
-    principal.appendChild(turnoP);
+    let turno = "X";
+    turnoP.innerText = `Vez do jogador: ${turno}`;
+
     for (let i = 0; i < 9; i++) {
-        tbl_velha.querySelector(".pos" + i).addEventListener('click', marcarPosicao(turno))
-    }
+        let cell = principal.querySelector(".pos" + i);
 
-    for(let i = 0; i < 9; i++){
+        cell.addEventListener('click', function turnos() {
+            if (this.textContent.trim() !== '') return;
 
+            this.textContent = turno;
+            turno = (turno === "X") ? "O" : "X";
+            turnoP.innerText = `Vez do jogador: ${turno}`;
+        });
     }
 }
 
-botaoComecar.addEventListener('click', estruturaJogo)
+
+
+botaoComecar.addEventListener('click', estruturaJogo);
