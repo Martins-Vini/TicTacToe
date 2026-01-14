@@ -2,6 +2,7 @@ let botaoComecar = document.querySelector("button#startGame");
 let principal = document.getElementsByTagName("main")[0];
 
 function estruturaJogo() {
+    debugger;
     principal.innerHTML = ` `
 
     let containerVelha = document.createElement("div");
@@ -65,6 +66,7 @@ function estruturaJogo() {
 
         cell.addEventListener('click', function turnos() {
             if (this.textContent.trim() !== '') return;
+            //O return aqui funciona como um "break", ou seja, se a célula já estiver preenchida, a função termina aqui.
             //A função trim() remove espaços em branco no início e no fim da string
             this.textContent = turno;
             turno = (turno === "X") ? "O" : "X";
@@ -73,9 +75,18 @@ function estruturaJogo() {
             validarVitoria(turnoP, tabelaVelha);
         });
     }
+
+    let botaoVoltar = document.createElement("button");
+    botaoVoltar.setAttribute('id', 'botao_voltar');
+    botaoVoltar.setAttribute('target', '_blank');
+    botaoVoltar.textContent = "Ver tutorial";
+    principal.appendChild(botaoVoltar);
+    botaoVoltar.addEventListener('click', function voltarMenu() {
+        window.location.href = `https://www.computersciencemaster.com.br/jogo-da-velha/#google_vignette`
+    })
 }
 
-function validarVitoria(turno, conteudo){
+export function validarVitoria(turno, conteudo) {
     let posicoes = [];
     for (let i = 0; i < 9; i++) {
         let cell = principal.querySelector(".pos" + i);
@@ -83,21 +94,30 @@ function validarVitoria(turno, conteudo){
     }
 
     let padroesVitoria = [
-        [0,1,2],[3,4,5],[6,7,8],
-        [0,3,6],[1,4,7],[2,5,8],
-        [0,4,8],[2,4,6]
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], //Vitórias nas horizontais
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], //Vitórias nas verticais
+        [0, 4, 8], [2, 4, 6] //Vitórias nas diagonais
     ];
 
     //for específico para percorrer os padrões de vitória (Todo o array)
     for (let padrao of padroesVitoria) {
         if (posicoes[padrao[0]] !== '' && posicoes[padrao[0]] === posicoes[padrao[1]] && posicoes[padrao[1]] === posicoes[padrao[2]]) {
-            turno.innerText = `Jogador ${posicoes[padrao[0]]} venceu!`;
+            turno.innerText = `O jogador ${posicoes[padrao[0]]} venceu!`;
             turno.style.fontSize = "32px";
             turno.style.color = "green";
+            conteudo.innerHTML = ""
+            return;
+        } else if (!posicoes.includes('')) { //Vê se não há mais espaços vazios mas ao mesmo tempo que não há sequência vencedora
+            turno.innerText = `Empate entre os dois jogadores!`;
+            turno.style.fontSize = "32px";
+            turno.style.color = "blue";
             conteudo.innerHTML = ""
             return;
         }
     }
 }
 
+//A verificação da vitória funciona com um for of que percorre toda a matriz, ele verifica se tanto horizontalmente, verticalmente ou diagonalmente há três símbolos iguais em sequência e se a célula não está vazia.
+
 botaoComecar.addEventListener('click', estruturaJogo);
+

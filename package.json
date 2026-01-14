@@ -1,0 +1,27 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "Um jogo da velha interativo, moderno e totalmente responsivo. Este projeto foi desenvolvido para oferecer uma experiência fluida tanto em computadores quanto em dispositivos móveis, contando com um sistema dinâmico de geração de tabuleiro via JavaScript.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martins-Vini/TicTacToe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Martins-Vini/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/Martins-Vini/TicTacToe#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "dependencies": {
+    "jsdom": "^27.0.1"
+  }
+}

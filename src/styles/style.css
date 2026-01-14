@@ -98,6 +98,19 @@ tr:last-child .celula { border-bottom: none; }
 .celula:nth-child(3n+1) { border-left: none; }
 .celula:nth-child(3n) { border-right: none; }
 
+#botao_voltar{
+    display: flex;
+    margin: 25px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #5e1603;
+    color: #ffffff;
+    border:1px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.315);
+}
+
 @media screen and (max-width: 600px) {
     .celula {
         width: 80px;
