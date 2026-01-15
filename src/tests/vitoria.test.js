@@ -8,6 +8,36 @@ test("deve detectar vitória de X na horizontal", () => {
     expect(resultado).toBe(`Vitória de ${posicoes[0]}`);
 });
 
+test("Deve detectar vitória de X na vertical", ()=>{
+    let posicoes = ['X','','','X','','','X','',''];
+    const resultado = validarVitoria(posicoes);
+    expect(resultado).toBe(`Vitória de ${posicoes[0]}`);
+})
+
+test("Deve detectar vitória de X na diagonal", ()=>{
+    let posicoes = ['X','','','','X','','','','X'];
+    const resultado = validarVitoria(posicoes);
+    expect(resultado).toBe(`Vitória de ${posicoes[0]}`);
+})
+
+test("Deve detectar vitória de O na horizontal", ()=>{
+    let posicoes = ['O','O','O','','','','','',''];
+    const resultado = validarVitoria(posicoes);
+    expect(resultado).toBe(`Vitória de ${posicoes[0]}`);
+})
+
+test("Deve detectar vitória de O na vertical", ()=>{
+    let posicoes = ['O','','','O','','','O','',''];
+    const resultado = validarVitoria(posicoes);
+    expect(resultado).toBe(`Vitória de ${posicoes[0]}`);
+})
+
+test("Deve detectar vitória de O na diagonal", ()=>{
+    let posicoes = ['O','','','','O','','','','O'];
+    const resultado = validarVitoria(posicoes);
+    expect(resultado).toEqual(`Vitória de ${posicoes[0]}`);
+})
+
 test("deve detectar empate", () => {
     const posicoes = ['X','O','X','O','X','O','O','X','O'];
     const resultado = validarVitoria(posicoes);

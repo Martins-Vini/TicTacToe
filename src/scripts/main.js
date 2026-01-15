@@ -59,7 +59,7 @@ function estruturaJogo() {
     principal.insertBefore(turnoP, containerVelha);
 
     let turno = "X";
-    turnoP.innerText = `Vez do jogador: ${turno}`;
+    turnoP.innerText = `Player's turn: ${turno}`;
 
     for (let i = 0; i < 9; i++) {
         let cell = principal.querySelector(".pos" + i);
@@ -70,7 +70,7 @@ function estruturaJogo() {
             //A função trim() remove espaços em branco no início e no fim da string
             this.textContent = turno;
             turno = (turno === "X") ? "O" : "X";
-            turnoP.innerText = `Vez do jogador: ${turno}`;
+            turnoP.innerText = `Player's turn ${turno}`;
 
             validarVitoria(turnoP, tabelaVelha);
         });
@@ -79,10 +79,19 @@ function estruturaJogo() {
     let botaoVoltar = document.createElement("button");
     botaoVoltar.setAttribute('id', 'botao_voltar');
     botaoVoltar.setAttribute('target', '_blank');
-    botaoVoltar.textContent = "Ver tutorial";
+    botaoVoltar.textContent = "See tutorial";
     principal.appendChild(botaoVoltar);
     botaoVoltar.addEventListener('click', function voltarMenu() {
         window.location.href = `https://www.computersciencemaster.com.br/jogo-da-velha/#google_vignette`
+    })
+
+
+    let botaoReiniciar = document.createElement("button");
+    botaoReiniciar.setAttribute('id', 'botao_reiniciar');
+    botaoReiniciar.textContent = "Restart Game";
+    principal.appendChild(botaoReiniciar);
+    botaoReiniciar.addEventListener('click', function reiniciarJogo() {
+        estruturaJogo();
     })
 }
 
